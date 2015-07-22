@@ -6,16 +6,14 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 
 import javax.sql.DataSource;
 
-@Configuration(ConnectDB.NAME)
-public final class ConnectDB {
-
-    public static final String NAME = "connectDB";
+@Configuration
+public class ConnectDB {
 
     @Bean
     public DataSource dataSource() {
         final JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
-        dsLookup.setResourceRef(true);
         DataSource dataSource = dsLookup.getDataSource("java:jboss/UISDS");
+        System.out.println("here datasource");
         return dataSource;
     }
 }

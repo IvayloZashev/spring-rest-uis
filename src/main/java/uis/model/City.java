@@ -13,6 +13,11 @@ public class City {
     //country name of the city
     private String countryName;
 
+    public City(String name, int countryId) {
+        this.name = name;
+        this.countryId = countryId;
+    }
+
     public String getCountryName() {
         return countryName;
     }

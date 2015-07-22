@@ -1,7 +1,6 @@
 package uis.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import uis.conn.ConnectDB;
@@ -11,13 +10,10 @@ import uis.model.CityRowMapper;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 
-@Repository(CityDAOImpl.NAME)
+@Repository
 public class CityDAOImpl implements CityDAO {
 
-    public static final String NAME = "cityDAO";
-
     @Autowired
-    @Qualifier(ConnectDB.NAME)
     ConnectDB connectDB;
 
     private DataSource ds = connectDB.dataSource();

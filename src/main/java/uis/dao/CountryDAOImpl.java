@@ -1,10 +1,8 @@
 package uis.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import uis.conn.ConnectDB;
 import uis.model.Country;
 import uis.model.CountryRowMapper;
@@ -12,13 +10,10 @@ import uis.model.CountryRowMapper;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 
-@Repository(CityDAOImpl.NAME)
-public class CountryDAOImpl implements uis.dao.CountryDAO {
-
-    public static final String NAME = "countryDAO";
+@Repository
+public class CountryDAOImpl implements CountryDAO {
 
     @Autowired
-    @Qualifier(ConnectDB.NAME)
     ConnectDB connectDB;
 
     private DataSource ds = connectDB.dataSource();

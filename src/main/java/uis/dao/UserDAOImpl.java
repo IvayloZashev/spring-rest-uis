@@ -1,7 +1,6 @@
 package uis.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import uis.conn.ConnectDB;
@@ -11,13 +10,10 @@ import uis.model.UserRowMapper;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 
-@Repository(UserDAOImpl.NAME)
-public class UserDAOImpl implements uis.dao.UserDAO {
-
-    public static final String NAME = "userDAO";
+@Repository
+public class UserDAOImpl implements UserDAO {
 
     @Autowired
-    @Qualifier(ConnectDB.NAME)
     ConnectDB connectDB;
 
     private DataSource ds = connectDB.dataSource();
